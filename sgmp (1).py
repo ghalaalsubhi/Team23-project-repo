@@ -344,14 +344,7 @@ class SGMPGroup:
         print(f"[epoch {self.epoch}] key rotation complete: {reason}")
 
     def _derive_epoch_group_seed(self, members: List[str]) -> bytes:
-        """Build the deterministic pairwise-secret transcript for this simulator.
-
-        The Phase I proposal says every participant combines pairwise DH secrets into one
-        GroupSeed. For a single-machine prototype, the simulator can compute the full
-        ordered set of pairwise secrets. A production decentralized version should replace
-        this helper with a formal group key agreement protocol or an authenticated transcript
-        that lets every participant derive the same bytes without exposing private keys.
-        """
+       
         # Combine all pairwise DH secrets into one deterministic transcript
         pairwise = []
         for left_index, left_id in enumerate(members):
